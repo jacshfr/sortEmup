@@ -3,7 +3,7 @@ var array = [];
 $(".list p").each(function (index) {
   x = $(this).text();
   array.push(x);
-  $(this).css({"font-size": "+" + ((index+3) * 5) + "px"})
+
 
 })
 
@@ -27,9 +27,10 @@ $(".list p").each(function (index) {
         console.log(array[i]);// I print the in ascending order
     }
 
-$(".list p").each(function (index) {
-  $(this).text(array[index])
-
+$("button").on("click", function () {
+  $(".list p").each(function (index) {
+    $(this).text(array[index]).css({"font-size": "+" + ((index+3) * 5) + "px"});
+  })
 })
 
 
