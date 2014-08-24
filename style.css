@@ -9,3 +9,8 @@ ul {
   position: relative;
   color: green;
 }
+
+.dot {
+  border-radius: 50%;
+  border: 2px solid;
+}

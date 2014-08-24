@@ -1,37 +1,44 @@
-var array = [];
+var numbers = new Array(40);
 
-$(".list p").each(function (index) {
-  x = $(this).text();
-  array.push(x);
+for(var i = 0; i < numbers.length; i++) {
+  numbers[i] = (Math.floor(Math.random() * 100));
+}
 
+addNumber(numbers);
 
-})
+function sortEmup() {
+    for (first = 0; first < numbers.length; first++) {
+        var min = first;
+        for (second = first + 1; second < numbers.length; second++) {
+            if (numbers[second] < numbers[min]) {
+                min = second;
 
-
-// This is my array
-    for (i = 0; i < array.length; i++) {
-        // Assume first element is min
-        var min = i;
-        for (j = i + 1; j < array.length; j++) {
-            if (array[j] < array[min]) {
-                min = j;
 
             }
-        }
-        if (min != i) {
-            temp = array[i];
-            array[i] = array[min];
-            array[min] = temp;
-        }
 
-        console.log(array[i]);// I print the in ascending order
+        }
+        if (min != first) {
+            temp = numbers[first];
+            numbers[first] = numbers[min];
+            numbers[min] = temp;
+
+        }
+    addNumber(numbers);
     }
+}
 
-$("button").on("click", function () {
-  $(".list p").each(function (index) {
-    $(this).text(array[index]).css({"font-size": "+" + ((index+3) * 5) + "px"});
-  })
-})
+
+
+function addNumber(array) {
+  $(".list").empty();
+  $.each(array, function(i, num) {
+   $(".list").append("<p class='number' style='font-size:" + num + "px' >" + num +  "</p>");
+  });
+}
+
+// addNumber(numbers);
+sortEmup();
+
 
 
 // function heapSort(array) {
